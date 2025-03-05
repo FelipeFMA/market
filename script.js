@@ -1,4 +1,4 @@
-let items = ["Apple", "Banana", "Red Meat", "Chicken", "Cucumber", "Carrot"];
+let items = ["Maça", "Banana", "Carne vermelha ", "Frango", "Pepino", "Cenoura"];
 let prices = [6.71, 1.11, 8.0, 6.0, 16.50, 2.87];
 let orderList = [];
 const adminPassword = "Root123";
@@ -8,7 +8,7 @@ function loadCustomerView() {
     const productList = document.getElementById("product-list");
     items.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item} - $${prices[index].toFixed(2)}`;
+        listItem.textContent = `${item} - R$${prices[index].toFixed(2)}`;
         const addButton = document.createElement("button");
         addButton.textContent = "Adicionar";
         addButton.addEventListener("click", () => {
@@ -28,7 +28,7 @@ function updateOrderList() {
     total = 0;
     orderList.forEach(index => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${items[index]} - $${prices[index].toFixed(2)}`;
+        listItem.textContent = `${items[index]} - R$${prices[index].toFixed(2)}`;
         orderListElement.appendChild(listItem);
         total += prices[index];
     });
