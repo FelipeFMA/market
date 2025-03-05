@@ -6,9 +6,10 @@ let total = 0;
 
 function loadCustomerView() {
     const productList = document.getElementById("product-list");
+    productList.innerHTML = ""; // Limpa a lista de produtos
     items.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item} - R$${prices[index].toFixed(2)}`;
+        listItem.textContent = `${item} - R${prices[index].toFixed(2)}`;
         const addButton = document.createElement("button");
         addButton.textContent = "Adicionar";
         addButton.addEventListener("click", () => {
@@ -28,7 +29,7 @@ function updateOrderList() {
     total = 0;
     orderList.forEach(index => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${items[index]} - R$${prices[index].toFixed(2)}`;
+        listItem.textContent = `${items[index]} - R${prices[index].toFixed(2)}`;
         orderListElement.appendChild(listItem);
         total += prices[index];
     });
@@ -78,8 +79,35 @@ function loadAdminView() {
         adminItemList.innerHTML = "";
         items.forEach((item, index) => {
             const listItem = document.createElement("li");
-            listItem.textContent = `${item} - $${prices[index].toFixed(2)}`;
+            listItem.textContent = `${item} - ${prices[index].toFixed(2)}`;
             adminItemList.appendChild(listItem);
         });
     });
 }
+
+// Adiciona a funcionalidade de finalizar compra
+document.getElementById("checkout").addEventListener("click", () => {
+    const successScreen = document.getElementById("success-screen");
+    const successMessage = document.getElementById("success-message");
+
+    // Mostrar a tela de sucesso
+    successScreen.style.display = "block";
+    successMessage.style.display = "block"; // Exibe a mensagem de sucesso
+
+    // Limpa a lista de pedidos após um pequeno atraso
+    setTimeout(() => {
+        orderList = [];
+        document.getElementById("order-list").innerHTML = "";
+        document.getElementById("total").textContent = "0.00";
+        location.reload(); // Recarrega a página
+    }, 2000); // Espera 2 segundos antes de recarregar
+});
+
+// Adicionar funcionalidade para voltar às compras
+document.getElementById("back-to-shopping").addEventListener("click", () => {
+    const successScreen = document.getElementById("success-screen");
+    successScreen.style.display = "none"; // Esconder a tela de sucesso
+    orderList = []; // Limpa a lista de pedidos
+    updateOrderList(); // Atualiza a lista de pedidos
+    loadCustomerView(); // Recarrega a visualização do cliente
+});

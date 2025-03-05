@@ -3,35 +3,50 @@ body {
     background-color: #1e1e2e;
     color: #cdd6f4;
     margin: 0;
-    padding: 10px; /* Reduz o padding do body */
+    padding: 10px;
+    /* Reduz o padding do body */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    font-size: 14px; /* Reduz o tamanho da fonte padrão */
+    font-size: 14px;
+    /* Reduz o tamanho da fonte padrão */
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #89b4fa;
     text-align: center;
-    margin-bottom: 10px; /* Reduz a margem inferior dos títulos */
+    margin-bottom: 10px;
+    /* Reduz a margem inferior dos títulos */
 }
 
-#product-list, #order-list, #admin-item-list {
+#product-list,
+#order-list,
+#admin-item-list {
     background-color: #2a2a37;
-    padding: 15px; /* Reduz o padding das listas */
-    border-radius: 6px; /* Reduz o raio da borda */
-    margin: 10px auto; /* Reduz as margens das listas */
-    max-width: 500px; /* Reduz a largura máxima das listas */
+    padding: 15px;
+    /* Reduz o padding das listas */
+    border-radius: 6px;
+    /* Reduz o raio da borda */
+    margin: 10px auto;
+    /* Reduz as margens das listas */
+    max-width: 500px;
+    /* Reduz a largura máxima das listas */
     width: 90%;
 }
 
-#admin-panel, #admin-actions {
+#admin-panel,
+#admin-actions {
     background-color: #2a2a37;
-    padding: 15px; /* Reduz o padding dos painéis */
-    border-radius: 6px; /* Reduz o raio da borda */
-    margin: 10px auto; /* Reduz as margens dos painéis */
-    max-width: 350px; /* Reduz a largura máxima dos painéis */
+    padding: 15px;
+    /* Reduz o padding dos painéis */
+    border-radius: 6px;
+    /* Reduz o raio da borda */
+    margin: 10px auto;
+    /* Reduz as margens dos painéis */
+    max-width: 350px;
+    /* Reduz a largura máxima dos painéis */
     width: 90%;
 }
 
@@ -41,7 +56,8 @@ ul {
 }
 
 li {
-    padding: 8px; /* Reduz o padding dos itens da lista */
+    padding: 8px;
+    /* Reduz o padding dos itens da lista */
     border-bottom: 1px solid #45475a;
     text-align: center;
 }
@@ -50,40 +66,65 @@ button {
     background-color: #89b4fa;
     color: #1e1e2e;
     border: none;
-    padding: 8px 16px; /* Reduz o padding dos botões */
-    border-radius: 4px; /* Reduz o raio da borda */
+    padding: 8px 16px;
+    /* Reduz o padding dos botões */
+    border-radius: 4px;
+    /* Reduz o raio da borda */
     cursor: pointer;
-    margin: 3px; /* Reduz as margens dos botões */
+    margin: 3px;
+    /* Reduz as margens dos botões */
     display: block;
     width: fit-content;
     margin: 5px auto;
-    font-size: 12px; /* Reduz o tamanho da fonte dos botões */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte dos botões */
 }
 
 button:hover {
     background-color: #74a9e8;
 }
 
-input[type="text"], input[type="number"], input[type="password"] {
+input[type="text"],
+input[type="number"],
+input[type="password"] {
     background-color: #1e1e2e;
     color: #cdd6f4;
     border: 1px solid #45475a;
-    padding: 6px; /* Reduz o padding dos inputs */
-    border-radius: 3px; /* Reduz o raio da borda */
-    margin: 3px auto; /* Reduz as margens dos inputs */
-    width: calc(90% - 16px); /* Ajusta a largura dos inputs */
+    padding: 6px;
+    /* Reduz o padding dos inputs */
+    border-radius: 3px;
+    /* Reduz o raio da borda */
+    margin: 3px auto;
+    /* Reduz as margens dos inputs */
+    width: calc(90% - 16px);
+    /* Ajusta a largura dos inputs */
     display: block;
-    font-size: 12px; /* Reduz o tamanho da fonte dos inputs */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte dos inputs */
 }
 
-input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
     outline: none;
     border-color: #89b4fa;
+}
+
+#success-screen {
+    background-color: #2a2a37;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 10px auto;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    color: #cdd6f4;
 }
 
 #total {
     font-weight: bold;
     color: #a6e3a1;
     text-align: center;
-    margin-top: 5px; /* Reduz a margem superior do total */
+    margin-top: 5px;
+    /* Reduz a margem superior do total */
 }
