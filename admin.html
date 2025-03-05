@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mercadinho Online - Administrador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Painel de Administração</h1>
+    <div id="admin-panel">
+        <input type="password" id="admin-password" placeholder="Senha de Administrador">
+        <button id="login-admin">Login</button>
+    </div>
+    <div id="admin-actions" style="display: none;">
+        <input type="text" id="add-item-name" placeholder="Nome do Item">
+        <input type="number" id="add-item-price" placeholder="Preço">
+        <button id="add-item">Adicionar Item</button>
+        <input type="text" id="remove-item-name" placeholder="Nome do Item para Remover">
+        <button id="remove-item">Remover Item</button>
+        <button id="list-items">Listar Itens</button>
+        <ul id="admin-item-list"></ul>
+    </div>
+    <script src="script.js"></script>
+    <script>loadAdminView();</script>
+</body>
+</html>
