@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
-    <title>Mercadinho Online - Cliente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Usuário</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Mercadinho Online</h1>
-    <ul id="product-list"></ul>
-    <h2>Carrinho de Compras</h2>
-    <ul id="order-list"></ul>
-    <p>Total: R$<span id="total">0.00</span></p>
-    <button id="checkout">Finalizar Compra</button>
-    <p id="success-message" style="display: none;">Compra finalizada com sucesso!</p>
-    <div id="success-screen" style="display: none;">
-        <h2>Obrigado pela sua compra!</h2>
-        <p>Seu pedido foi recebido e está sendo processado.</p>
-        <button id="back-to-shopping">Voltar para as compras</button>
-    </div>
-    <script src="script.js"></script>
-    <script>loadCustomerView();</script>
+    <h1>Bem-vindo ao Mercadinho Online</h1>
+    <h2>Você é:</h2>
+    <button id="customer-button">Cliente</button>
+    <button id="admin-button">Administrador</button>
+
+    <script>
+        document.getElementById("customer-button").addEventListener("click", () => {
+            window.location.href = "customer.html"; // Redireciona para a página do cliente
+        });
+
+        document.getElementById("admin-button").addEventListener("click", () => {
+            window.location.href = "admin.html"; // Redireciona para a página do administrador
+        });
+    </script>
 </body>
 
 </html>
