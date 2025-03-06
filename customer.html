@@ -3,25 +3,24 @@
 
 <head>
     <title>Mercadinho Online - Cliente</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Mercadinho Online</h1> <!-- Título principal da página -->
-    <ul id="product-list"></ul> <!-- Lista de produtos disponíveis -->
-    <h2>Carrinho de Compras</h2> <!-- Título da seção do carrinho -->
-    <ul id="order-list"></ul> <!-- Lista de itens no carrinho -->
-    <p>Total: R$<span id="total">0.00</span></p> <!-- Exibe o total da compra -->
-    <button id="checkout">Finalizar Compra</button> <!-- Botão para finalizar a compra -->
+    <h1>Mercadinho Online</h1>
+    <ul id="product-list" class="fade-in"></ul> <!-- Adiciona classe fade-in -->
+    <h2>Carrinho de Compras</h2>
+    <ul id="order-list" class="fade-in"></ul> <!-- Adiciona classe fade-in -->
+    <p>Total: R$<span id="total">0.00</span></p>
+    <button id="checkout">Finalizar Compra</button>
     <p id="success-message" style="display: none;">Compra finalizada com sucesso!</p>
-    <!-- Mensagem de sucesso oculta inicialmente -->
-    <div id="success-screen" style="display: none;"> <!-- Tela de sucesso oculta inicialmente -->
-        <h2>Obrigado pela sua compra!</h2> <!-- Mensagem de agradecimento -->
-        <p>Seu pedido foi recebido e está sendo processado.</p> <!-- Informação sobre o processamento do pedido -->
-        <button id="back-to-shopping">Voltar para as compras</button> <!-- Botão para voltar à lista de produtos -->
+    <div id="success-screen" style="display: none;" class="fade-in"> <!-- Adiciona classe fade-in -->
+        <h2>Obrigado pela sua compra!</h2>
+        <p>Seu pedido foi recebido e está sendo processado.</p>
+        <button id="back-to-shopping">Voltar para as compras</button>
     </div>
-    <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
-    <script>loadCustomerView();</script> <!-- Chama a função para carregar a visualização do cliente -->
+    <script src="script.js"></script>
+    <script>loadCustomerView();</script>
 </body>
 
 </html>

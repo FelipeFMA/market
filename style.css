@@ -1,173 +1,132 @@
 body {
-    font-family: sans-serif;
-    /* Define a fonte do corpo */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna */
     background-color: #1e1e2e;
-    /* Cor de fundo da página */
     color: #cdd6f4;
-    /* Cor do texto */
     margin: 0;
-    /* Remove margens padrão */
     padding: 10px;
-    /* Adiciona padding ao corpo */
     display: flex;
-    /* Utiliza flexbox para layout */
     flex-direction: column;
-    /* Alinha os itens em coluna */
     align-items: center;
-    /* Centraliza os itens */
     min-height: 100vh;
-    /* Garante que a altura mínima seja 100% da viewport */
-    font-size: 14px;
-    /* Define o tamanho da fonte padrão */
+    font-size: 16px;
+    /* Aumenta o tamanho da fonte */
+    transition: background-color 0.3s ease;
+    /* Transição suave para a cor de fundo */
 }
 
 h1,
 h2 {
     color: #89b4fa;
-    /* Cor dos títulos */
     text-align: center;
-    /* Centraliza o texto dos títulos */
     margin-bottom: 10px;
-    /* Margem inferior dos títulos */
+    transition: color 0.3s ease;
+    /* Transição suave para a cor do texto */
 }
 
 #product-list,
 #order-list,
 #admin-item-list {
     background-color: #2a2a37;
-    /* Cor de fundo das listas */
     padding: 15px;
-    /* Padding interno das listas */
     border-radius: 6px;
-    /* Bordas arredondadas */
     margin: 10px auto;
-    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 500px;
-    /* Largura máxima das listas */
     width: 90%;
-    /* Largura das listas */
 }
 
 #admin-panel,
 #admin-actions {
     background-color: #2a2a37;
-    /* Cor de fundo dos painéis administrativos */
     padding: 15px;
-    /* Padding interno dos painéis */
     border-radius: 6px;
-    /* Bordas arredondadas */
     margin: 10px auto;
-    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 350px;
-    /* Largura máxima dos painéis */
     width: 90%;
-    /* Largura dos painéis */
 }
 
 ul {
     list-style-type: none;
-    /* Remove os marcadores das listas */
     padding: 0;
-    /* Remove o padding das listas */
 }
 
 li {
     padding: 8px;
-    /* Padding interno dos itens da lista */
     border-bottom: 1px solid #45475a;
-    /* Borda inferior dos itens */
     text-align: center;
-    /* Centraliza o texto dos itens */
 }
 
 button {
     background-color: #89b4fa;
-    /* Cor de fundo dos botões */
     color: #1e1e2e;
-    /* Cor do texto dos botões */
     border: none;
-    /* Remove a borda padrão dos botões */
-    padding: 8px 16px;
-    /* Padding interno dos botões */
-    border-radius: 4px;
-    /* Bordas arredondadas dos botões */
+    padding: 10px 20px;
+    /* Aumenta o padding para botões maiores */
+    border-radius: 6px;
+    /* Bordas mais arredondadas */
     cursor: pointer;
-    /* Muda o cursor ao passar sobre o botão */
-    margin: 3px;
-    /* Margem dos botões */
-    display: block;
-    /* Exibe os botões como blocos */
-    width: fit-content;
-    /* Largura do botão se ajusta ao conteúdo */
     margin: 5px auto;
-    /* Margem superior e inferior, centraliza horizontalmente */
-    font-size: 12px;
-    /* Tamanho da fonte dos botões */
+    display: block;
+    width: fit-content;
+    font-size: 14px;
+    /* Aumenta o tamanho da fonte dos botões */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Transições para animações */
 }
 
 button:hover {
     background-color: #74a9e8;
-    /* Cor de fundo ao passar o mouse sobre o botão */
+    transform: scale(1.05);
+    /* Animação de aumento ao passar o mouse */
 }
 
 input[type="text"],
 input[type="number"],
 input[type="password"] {
     background-color: #1e1e2e;
-    /* Cor de fundo dos inputs */
     color: #cdd6f4;
-    /* Cor do texto dos inputs */
     border: 1px solid #45475a;
-    /* Borda dos inputs */
-    padding: 6px;
-    /* Padding interno dos inputs */
-    border-radius: 3px;
-    /* Bordas arredondadas dos inputs */
-    margin: 3px auto;
-    /* Margem dos inputs */
+    padding: 10px;
+    /* Aumenta o padding dos inputs */
+    border-radius: 4px;
+    margin: 5px auto;
     width: calc(90% - 16px);
-    /* Largura dos inputs ajustada */
     display: block;
-    /* Exibe os inputs como blocos */
-    font-size: 12px;
-    /* Tamanho da fonte dos inputs */
+    font-size: 14px;
+    /* Aumenta o tamanho da fonte dos inputs */
+    transition: border-color 0.3s ease;
+    /* Transição suave para a borda */
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus {
     outline: none;
-    /* Remove o contorno padrão ao focar no input */
     border-color: #89b4fa;
-    /* Muda a cor da borda ao focar no input */
 }
 
 #success-screen {
     background-color: #2a2a37;
-    /* Cor de fundo da tela de sucesso */
-    padding: 15px;
-    /* Padding interno da tela de sucesso */
+    padding: 20px;
+    /* Aumenta o padding da tela de sucesso */
     border-radius: 6px;
-    /* Bordas arredondadas da tela de sucesso */
     margin: 10px auto;
-    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 500px;
-    /* Largura máxima da tela de sucesso */
     width: 90%;
-    /* Largura da tela de sucesso */
     text-align: center;
-    /* Centraliza o texto da tela de sucesso */
     color: #cdd6f4;
-    /* Cor do texto da tela de sucesso */
+    transition: opacity 0.5s ease;
+    /* Transição suave para a opacidade */
 }
 
-#total {
-    font-weight: bold;
-    /* Define o texto como negrito */
-    color: #a6e3a1;
-    /* Cor do total */
-    text-align: center;
-    /* Centraliza o texto do total */
-    margin-top: 5px;
-    /* Margem superior do total */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    /* Animação de fade-in */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }

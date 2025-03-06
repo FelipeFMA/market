@@ -3,33 +3,29 @@
 
 <head>
     <title>Mercadinho Online - Administrador</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Painel de Administração</h1> <!-- Título principal do painel administrativo -->
-    <div id="admin-notice" style="color: red; margin-bottom: 20px;"> <!-- Aviso sobre a funcionalidade -->
+    <h1>Painel de Administração</h1>
+    <div id="admin-notice" style="color: red; margin-bottom: 20px;">
         Aviso: Esta funcionalidade ainda não está funcionando.
     </div>
-    <div id="admin-panel"> <!-- Painel de login do administrador -->
+    <div id="admin-panel" class="fade-in"> <!-- Adiciona classe fade-in -->
         <input type="password" id="admin-password" placeholder="Senha de Administrador">
-        <!-- Campo para inserir a senha do administrador -->
-        <button id="login-admin">Login</button> <!-- Botão para realizar o login -->
+        <button id="login-admin">Login</button>
     </div>
-    <div id="admin-actions" style="display: none;"> <!-- Ações administrativas, inicialmente ocultas -->
+    <div id="admin-actions" style="display: none;" class="fade-in"> <!-- Adiciona classe fade-in -->
         <input type="text" id="add-item-name" placeholder="Nome do Item">
-        <!-- Campo para inserir o nome do item a ser adicionado -->
         <input type="number" id="add-item-price" placeholder="Preço">
-        <!-- Campo para inserir o preço do item a ser adicionado -->
-        <button id="add-item">Adicionar Item</button> <!-- Botão para adicionar o item -->
+        <button id="add-item">Adicionar Item</button>
         <input type="text" id="remove-item-name" placeholder="Nome do Item para Remover">
-        <!-- Campo para inserir o nome do item a ser removido -->
-        <button id="remove-item">Remover Item</button> <!-- Botão para remover o item -->
-        <button id="list-items">Listar Itens</button> <!-- Botão para listar os itens disponíveis -->
-        <ul id="admin-item-list"></ul> <!-- Lista para exibir os itens administrados -->
+        <button id="remove-item">Remover Item</button>
+        <button id="list-items">Listar Itens</button>
+        <ul id="admin-item-list"></ul>
     </div>
-    <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
-    <script>loadAdminView();</script> <!-- Chama a função para carregar a visualização do administrador -->
+    <script src="script.js"></script>
+    <script>loadAdminView();</script>
 </body>
 
 </html>
