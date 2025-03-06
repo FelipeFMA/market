@@ -4,12 +4,43 @@ let orderList = [];
 const adminPassword = "Root123";
 let total = 0;
 
+// Theme toggle logic
+const themeToggleButton = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark theme
+document.body.classList.add(currentTheme);
+
+themeToggleButton.addEventListener("click", () => {
+    if (document.body.classList.contains("dark")) {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+        localStorage.setItem("theme", "light");
+        themeToggleButton.textContent = "🌙"; // Moon icon for light mode
+
+        // Update classes for relevant elements
+        document.querySelectorAll('#product-list, #order-list, #admin-item-list, #admin-panel, #admin-actions, input[type="text"], input[type="number"], input[type="password"]').forEach(element => {
+            element.classList.remove("dark");
+            element.classList.add("light");
+        });
+    } else {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        themeToggleButton.textContent = "☀️"; // Sun icon for dark mode
+
+        // Update classes for relevant elements
+        document.querySelectorAll('#product-list, #order-list, #admin-item-list, #admin-panel, #admin-actions, input[type="text"], input[type="number"], input[type="password"]').forEach(element => {
+            element.classList.remove("light");
+            element.classList.add("dark");
+        });
+    }
+});
+
 function loadCustomerView() {
     const productList = document.getElementById("product-list");
     productList.innerHTML = "";
     items.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item} - $${prices[index].toFixed(2)}`;
+        listItem.textContent = `${item} - ${prices[index].toFixed(2)}`;
         const addButton = document.createElement("button");
         addButton.textContent = "Add";
         addButton.addEventListener("click", () => {
