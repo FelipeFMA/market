@@ -1,41 +1,40 @@
+# Online Market 🛒
 
-# Mercadinho Online
-
-Este é um projeto simples de um mercadinho online desenvolvido para fins de aprendizado e diversão, utilizando apenas tecnologias web básicas:
+This is a simple online market project developed for learning and fun purposes, using only basic web technologies:
 
 - HTML
 - CSS
 - JavaScript
 
-## Sobre o Projeto
+## About the Project 📋
 
-O Mercadinho Online é uma aplicação web que simula uma loja virtual com duas interfaces:
+The Online Market is a web application that simulates a virtual store with two interfaces:
 
-### Interface do Cliente
-- Lista de produtos disponíveis
-- Carrinho de compras
-- Cálculo automático do total
-- Finalização de compra
-- Mensagem de confirmação
+### Customer Interface 👥
+- List of available products
+- Shopping cart
+- Automatic total calculation
+- Purchase completion
+- Confirmation message
 
-### Interface do Administrador
-- Sistema de login com senha
-- Adicionar novos produtos
-- Remover produtos existentes
-- Listar todos os produtos
+### Admin Interface 👨‍💼
+- Password-protected login system
+- Add new products
+- Remove existing products
+- List all products
 
-## Tecnologias Utilizadas
+## Technologies Used 🛠️
 
-- **HTML**: Estruturação das páginas e elementos
-- **CSS**: Estilização moderna com tema escuro e design responsivo
-- **JavaScript**: Toda a lógica de funcionamento da aplicação
+- **HTML**: Page and element structuring
+- **CSS**: Modern styling with dark theme and responsive design
+- **JavaScript**: All application logic
 
-## Objetivo do Projeto
+## Project Objective 🎯
 
-Este projeto foi desenvolvido como uma forma prática de aprender e aplicar conceitos fundamentais de desenvolvimento web, incluindo:
+This project was developed as a practical way to learn and apply fundamental web development concepts, including:
 
-- Eventos em JavaScript
-- Estilização com CSS moderno
-- Layouts responsivos
-- Gerenciamento de estado básico
-- Interação entre diferentes páginas
+- JavaScript Events
+- Modern CSS styling
+- Responsive layouts
+- Basic state management
+- Interaction between different pages

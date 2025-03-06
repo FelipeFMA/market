@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleção de Usuário</title>
+    <title>User Selection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Bem-vindo ao Mercadinho Online</h1>
-    <h2>Você é:</h2>
-    <button id="customer-button">Cliente</button>
-    <button id="admin-button">Administrador</button>
+    <h1>Welcome to Online Market</h1>
+    <h2>You are:</h2>
+    <button id="customer-button">Customer</button>
+    <button id="admin-button">Administrator</button>
 
     <script>
         document.getElementById("customer-button").addEventListener("click", () => {
-            window.location.href = "customer.html"; // Redireciona para a página do cliente
+            window.location.href = "customer.html";
         });
 
         document.getElementById("admin-button").addEventListener("click", () => {
-            window.location.href = "admin.html"; // Redireciona para a página do administrador
+            window.location.href = "admin.html";
         });
     </script>
 </body>

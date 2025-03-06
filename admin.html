@@ -2,25 +2,25 @@
 <html>
 
 <head>
-    <title>Mercadinho Online - Administrador</title>
+    <title>Online Market - Administrator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Painel de Administração</h1>
+    <h1>Administration Panel</h1>
     <div id="admin-notice" style="color: red; margin-bottom: 20px;">
-        Aviso: Esta funcionalidade ainda não está funcionando.
+        Notice: This feature is not working yet.
     </div>
-    <div id="admin-panel" class="fade-in"> <!-- Adiciona classe fade-in -->
-        <input type="password" id="admin-password" placeholder="Senha de Administrador">
+    <div id="admin-panel" class="fade-in">
+        <input type="password" id="admin-password" placeholder="Administrator Password">
         <button id="login-admin">Login</button>
     </div>
-    <div id="admin-actions" style="display: none;" class="fade-in"> <!-- Adiciona classe fade-in -->
-        <input type="text" id="add-item-name" placeholder="Nome do Item">
-        <input type="number" id="add-item-price" placeholder="Preço">
-        <button id="add-item">Adicionar Item</button>
-        <input type="text" id="remove-item-name" placeholder="Nome do Item para Remover">
-        <button id="remove-item">Remover Item</button>
+    <div id="admin-actions" style="display: none;" class="fade-in">
+        <input type="text" id="add-item-name" placeholder="Item Name">
+        <input type="number" id="add-item-price" placeholder="Price">
+        <button id="add-item">Add Item</button>
+        <input type="text" id="remove-item-name" placeholder="Item Name to Remove">
+        <button id="remove-item">Remove Item</button>
         <ul id="admin-item-list"></ul>
     </div>
     <script src="script.js"></script>
