@@ -6,7 +6,7 @@ let total = 0;
 
 function loadCustomerView() {
     const productList = document.getElementById("product-list");
-    productList.innerHTML = ""; // Limpa a lista de produtos
+    productList.innerHTML = "";
     items.forEach((item, index) => {
         const listItem = document.createElement("li");
         listItem.textContent = `${item} - R${prices[index].toFixed(2)}`;
@@ -50,6 +50,7 @@ function loadAdminView() {
         if (passwordInput.value === adminPassword) {
             adminPanel.style.display = "none";
             adminActions.style.display = "block";
+            listItemsButton.click(); // Listar itens ao fazer login
         } else {
             alert("Senha incorreta!");
         }
@@ -58,9 +59,14 @@ function loadAdminView() {
     addItemButton.addEventListener("click", () => {
         const name = document.getElementById("add-item-name").value;
         const price = parseFloat(document.getElementById("add-item-price").value);
-        items.push(name);
-        prices.push(price);
-        alert("Item adicionado!");
+        if (name && !isNaN(price)) {
+            items.push(name);
+            prices.push(price);
+            alert("Item adicionado!");
+            listItemsButton.click(); // Atualiza a lista de itens
+        } else {
+            alert("Por favor, insira um nome e um preço válidos.");
+        }
     });
 
     removeItemButton.addEventListener("click", () => {
@@ -70,6 +76,7 @@ function loadAdminView() {
             items.splice(index, 1);
             prices.splice(index, 1);
             alert("Item removido!");
+            listItemsButton.click(); // Atualiza a lista de itens
         } else {
             alert("Item não encontrado!");
         }
@@ -79,7 +86,7 @@ function loadAdminView() {
         adminItemList.innerHTML = "";
         items.forEach((item, index) => {
             const listItem = document.createElement("li");
-            listItem.textContent = `${item} - ${prices[index].toFixed(2)}`;
+            listItem.textContent = `${item} - R${prices[index].toFixed(2)}`;
             adminItemList.appendChild(listItem);
         });
     });
