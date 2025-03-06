@@ -1,130 +1,173 @@
 body {
     font-family: sans-serif;
+    /* Define a fonte do corpo */
     background-color: #1e1e2e;
+    /* Cor de fundo da página */
     color: #cdd6f4;
+    /* Cor do texto */
     margin: 0;
+    /* Remove margens padrão */
     padding: 10px;
-    /* Reduz o padding do body */
+    /* Adiciona padding ao corpo */
     display: flex;
+    /* Utiliza flexbox para layout */
     flex-direction: column;
+    /* Alinha os itens em coluna */
     align-items: center;
+    /* Centraliza os itens */
     min-height: 100vh;
+    /* Garante que a altura mínima seja 100% da viewport */
     font-size: 14px;
-    /* Reduz o tamanho da fonte padrão */
+    /* Define o tamanho da fonte padrão */
 }
 
 h1,
 h2 {
     color: #89b4fa;
+    /* Cor dos títulos */
     text-align: center;
+    /* Centraliza o texto dos títulos */
     margin-bottom: 10px;
-    /* Reduz a margem inferior dos títulos */
+    /* Margem inferior dos títulos */
 }
 
 #product-list,
 #order-list,
 #admin-item-list {
     background-color: #2a2a37;
+    /* Cor de fundo das listas */
     padding: 15px;
-    /* Reduz o padding das listas */
+    /* Padding interno das listas */
     border-radius: 6px;
-    /* Reduz o raio da borda */
+    /* Bordas arredondadas */
     margin: 10px auto;
-    /* Reduz as margens das listas */
+    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 500px;
-    /* Reduz a largura máxima das listas */
+    /* Largura máxima das listas */
     width: 90%;
+    /* Largura das listas */
 }
 
 #admin-panel,
 #admin-actions {
     background-color: #2a2a37;
+    /* Cor de fundo dos painéis administrativos */
     padding: 15px;
-    /* Reduz o padding dos painéis */
+    /* Padding interno dos painéis */
     border-radius: 6px;
-    /* Reduz o raio da borda */
+    /* Bordas arredondadas */
     margin: 10px auto;
-    /* Reduz as margens dos painéis */
+    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 350px;
-    /* Reduz a largura máxima dos painéis */
+    /* Largura máxima dos painéis */
     width: 90%;
+    /* Largura dos painéis */
 }
 
 ul {
     list-style-type: none;
+    /* Remove os marcadores das listas */
     padding: 0;
+    /* Remove o padding das listas */
 }
 
 li {
     padding: 8px;
-    /* Reduz o padding dos itens da lista */
+    /* Padding interno dos itens da lista */
     border-bottom: 1px solid #45475a;
+    /* Borda inferior dos itens */
     text-align: center;
+    /* Centraliza o texto dos itens */
 }
 
 button {
     background-color: #89b4fa;
+    /* Cor de fundo dos botões */
     color: #1e1e2e;
+    /* Cor do texto dos botões */
     border: none;
+    /* Remove a borda padrão dos botões */
     padding: 8px 16px;
-    /* Reduz o padding dos botões */
+    /* Padding interno dos botões */
     border-radius: 4px;
-    /* Reduz o raio da borda */
+    /* Bordas arredondadas dos botões */
     cursor: pointer;
+    /* Muda o cursor ao passar sobre o botão */
     margin: 3px;
-    /* Reduz as margens dos botões */
+    /* Margem dos botões */
     display: block;
+    /* Exibe os botões como blocos */
     width: fit-content;
+    /* Largura do botão se ajusta ao conteúdo */
     margin: 5px auto;
+    /* Margem superior e inferior, centraliza horizontalmente */
     font-size: 12px;
-    /* Reduz o tamanho da fonte dos botões */
+    /* Tamanho da fonte dos botões */
 }
 
 button:hover {
     background-color: #74a9e8;
+    /* Cor de fundo ao passar o mouse sobre o botão */
 }
 
 input[type="text"],
 input[type="number"],
 input[type="password"] {
     background-color: #1e1e2e;
+    /* Cor de fundo dos inputs */
     color: #cdd6f4;
+    /* Cor do texto dos inputs */
     border: 1px solid #45475a;
+    /* Borda dos inputs */
     padding: 6px;
-    /* Reduz o padding dos inputs */
+    /* Padding interno dos inputs */
     border-radius: 3px;
-    /* Reduz o raio da borda */
+    /* Bordas arredondadas dos inputs */
     margin: 3px auto;
-    /* Reduz as margens dos inputs */
+    /* Margem dos inputs */
     width: calc(90% - 16px);
-    /* Ajusta a largura dos inputs */
+    /* Largura dos inputs ajustada */
     display: block;
+    /* Exibe os inputs como blocos */
     font-size: 12px;
-    /* Reduz o tamanho da fonte dos inputs */
+    /* Tamanho da fonte dos inputs */
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus {
     outline: none;
+    /* Remove o contorno padrão ao focar no input */
     border-color: #89b4fa;
+    /* Muda a cor da borda ao focar no input */
 }
 
 #success-screen {
     background-color: #2a2a37;
+    /* Cor de fundo da tela de sucesso */
     padding: 15px;
+    /* Padding interno da tela de sucesso */
     border-radius: 6px;
+    /* Bordas arredondadas da tela de sucesso */
     margin: 10px auto;
+    /* Margem superior e inferior, centraliza horizontalmente */
     max-width: 500px;
+    /* Largura máxima da tela de sucesso */
     width: 90%;
+    /* Largura da tela de sucesso */
     text-align: center;
+    /* Centraliza o texto da tela de sucesso */
     color: #cdd6f4;
+    /* Cor do texto da tela de sucesso */
 }
 
 #total {
     font-weight: bold;
+    /* Define o texto como negrito */
     color: #a6e3a1;
+    /* Cor do total */
     text-align: center;
+    /* Centraliza o texto do total */
     margin-top: 5px;
-    /* Reduz a margem superior do total */
+    /* Margem superior do total */
 }
