@@ -1,28 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+    <head>
+        <title>Online Market - Customer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <title>Online Market - Customer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body class="dark">
-    <h1>Online Market</h1>
-    <input type="text" id="search-customer" placeholder="Search items...">
-    <ul id="product-list" class="fade-in"></ul>
-    <h2>Shopping Cart</h2>
-    <ul id="order-list" class="fade-in"></ul>
-    <p>Total: $<span id="total">0.00</span></p>
-    <button id="checkout">Checkout</button>
-    <p id="success-message" style="display: none;">Purchase completed successfully!</p>
-    <div id="success-screen" style="display: none;" class="fade-in">
-        <h2>Thank you for your purchase!</h2>
-        <p>Your order has been received and is being processed.</p>
-        <button id="back-to-shopping">Back to shopping</button>
-    </div>
-    <button id="theme-toggle" style="position: absolute; top: 10px; right: 10px;">🌙</button>
-    <script src="script.js"></script>
-    <script>loadCustomerView();</script>
-</body>
-
+    <body class="dark">
+        <h1>Online Market</h1>
+        <input type="text" id="search-customer" placeholder="Search items..." />
+        <ul id="product-list" class="fade-in"></ul>
+        <h2>Shopping Cart</h2>
+        <ul id="order-list" class="fade-in"></ul>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button id="checkout">Checkout</button>
+        <p id="success-message" style="display: none">
+            Purchase completed successfully!
+        </p>
+        <div id="success-screen" style="display: none" class="fade-in">
+            <h2>Thank you for your purchase!</h2>
+            <p>Your order has been received and is being processed.</p>
+            <button id="back-to-shopping">Back to shopping</button>
+        </div>
+        <button
+            id="theme-toggle"
+            style="
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                padding: 0;
+                transform: scale(0.8);
+                font-size: 35px;
+            "
+        >
+            🌙
+        </button>
+        <script src="script.js"></script>
+        <script>
+            loadCustomerView();
+        </script>
+    </body>
 </html>

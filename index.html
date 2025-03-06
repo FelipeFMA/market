@@ -1,43 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Selection</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Selection</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <body class="dark">
+        <h1>Welcome to Online Market</h1>
+        <h2>Please select your role:</h2>
+        <button id="customer-button">Customer</button>
+        <button
+            id="theme-toggle"
+            style="
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                padding: 0;
+                transform: scale(0.8);
+                font-size: 35px;
+            "
+        >
+            🌙
+        </button>
 
-<body class="dark">
-    <h1>Welcome to Online Market</h1>
-    <h2>Please select your role:</h2>
-    <button id="customer-button">Customer</button>
-    <button id="theme-toggle" style="position: absolute; top: 10px; right: 10px;">🌙</button>
+        <script>
+            document
+                .getElementById("customer-button")
+                .addEventListener("click", () => {
+                    window.location.href = "customer.html";
+                });
 
-    <script>
-        document.getElementById("customer-button").addEventListener("click", () => {
-            window.location.href = "customer.html";
-        });
+            // Theme toggle logic
+            const themeToggleButton = document.getElementById("theme-toggle");
+            const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark theme
+            document.body.classList.add(currentTheme);
 
-        // Theme toggle logic
-        const themeToggleButton = document.getElementById("theme-toggle");
-        const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark theme
-        document.body.classList.add(currentTheme);
-
-        themeToggleButton.addEventListener("click", () => {
-            if (document.body.classList.contains("dark")) {
-                document.body.classList.remove("dark");
-                document.body.classList.add("light");
-                localStorage.setItem("theme", "light");
-                themeToggleButton.textContent = "🌙"; // Moon icon for light mode
-            } else {
-                document.body.classList.remove("light");
-                document.body.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                themeToggleButton.textContent = "☀️"; // Sun icon for dark mode
-            }
-        });
-    </script>
-</body>
-
+            themeToggleButton.addEventListener("click", () => {
+                if (document.body.classList.contains("dark")) {
+                    document.body.classList.remove("dark");
+                    document.body.classList.add("light");
+                    localStorage.setItem("theme", "light");
+                    themeToggleButton.textContent = "🌙"; // Moon icon for light mode
+                } else {
+                    document.body.classList.remove("light");
+                    document.body.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                    themeToggleButton.textContent = "☀️"; // Sun icon for dark mode
+                }
+            });
+        </script>
+    </body>
 </html>
