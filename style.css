@@ -1,6 +1,5 @@
 body {
     font-family: 'Poppins', sans-serif;
-    /* Fonte moderna */
     background-color: #1e1e2e;
     color: #cdd6f4;
     margin: 0;
@@ -10,9 +9,7 @@ body {
     align-items: center;
     min-height: 100vh;
     font-size: 16px;
-    /* Aumenta o tamanho da fonte */
     transition: background-color 0.3s ease;
-    /* Transição suave para a cor de fundo */
 }
 
 h1,
@@ -21,7 +18,6 @@ h2 {
     text-align: center;
     margin-bottom: 10px;
     transition: color 0.3s ease;
-    /* Transição suave para a cor do texto */
 }
 
 #product-list,
@@ -61,23 +57,18 @@ button {
     color: #1e1e2e;
     border: none;
     padding: 10px 20px;
-    /* Aumenta o padding para botões maiores */
     border-radius: 6px;
-    /* Bordas mais arredondadas */
     cursor: pointer;
     margin: 5px auto;
     display: block;
-    width: fit-content;
+    width: 200px;
     font-size: 14px;
-    /* Aumenta o tamanho da fonte dos botões */
     transition: background-color 0.3s ease, transform 0.2s ease;
-    /* Transições para animações */
 }
 
 button:hover {
     background-color: #74a9e8;
     transform: scale(1.05);
-    /* Animação de aumento ao passar o mouse */
 }
 
 input[type="text"],
@@ -87,15 +78,12 @@ input[type="password"] {
     color: #cdd6f4;
     border: 1px solid #45475a;
     padding: 10px;
-    /* Aumenta o padding dos inputs */
     border-radius: 4px;
     margin: 5px auto;
     width: calc(90% - 16px);
     display: block;
     font-size: 14px;
-    /* Aumenta o tamanho da fonte dos inputs */
     transition: border-color 0.3s ease;
-    /* Transição suave para a borda */
 }
 
 input[type="text"]:focus,
@@ -108,7 +96,6 @@ input[type="password"]:focus {
 #success-screen {
     background-color: #2a2a37;
     padding: 20px;
-    /* Aumenta o padding da tela de sucesso */
     border-radius: 6px;
     margin: 10px auto;
     max-width: 500px;
@@ -116,13 +103,11 @@ input[type="password"]:focus {
     text-align: center;
     color: #cdd6f4;
     transition: opacity 0.5s ease;
-    /* Transição suave para a opacidade */
 }
 
 .fade-in {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
-    /* Animação de fade-in */
 }
 
 @keyframes fadeIn {
