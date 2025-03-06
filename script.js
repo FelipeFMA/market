@@ -113,8 +113,7 @@ document.getElementById("checkout").addEventListener("click", () => {
         orderList = []; // Limpa a lista de pedidos
         document.getElementById("order-list").innerHTML = ""; // Limpa a lista de pedidos exibida
         document.getElementById("total").textContent = "0.00"; // Reseta o total exibido
-        location.reload(); // Recarrega a página
-    }, 2000); // Espera 2 segundos antes de recarregar
+    }, 2000); // Espera 2 segundos antes de limpar a lista
 });
 
 // Adicionar funcionalidade para voltar às compras
