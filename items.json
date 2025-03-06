@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Apple",
+      "price": 6.71,
+      "category": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Banana",
+      "price": 1.11,
+      "category": "Fruits"
+    },
+    {
+      "id": 3,
+      "name": "Red meat",
+      "price": 8.0,
+      "category": "Meat"
+    },
+    {
+      "id": 4,
+      "name": "Chicken",
+      "price": 6.0,
+      "category": "Meat"
+    },
+    {
+      "id": 5,
+      "name": "Cucumber",
+      "price": 16.5,
+      "category": "Vegetables"
+    },
+    {
+      "id": 6,
+      "name": "Carrot",
+      "price": 2.87,
+      "category": "Vegetables"
+    }
+  ]
+}

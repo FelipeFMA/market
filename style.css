@@ -1,7 +1,6 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: #1e1e2e;
-    /* Default dark theme */
     color: #cdd6f4;
     margin: 0;
     padding: 10px;
@@ -25,7 +24,6 @@ h2 {
 #order-list,
 #admin-item-list {
     background-color: #2a2a37;
-    /* Default dark theme */
     padding: 15px;
     border-radius: 6px;
     margin: 10px auto;
@@ -36,7 +34,6 @@ h2 {
 #admin-panel,
 #admin-actions {
     background-color: #2a2a37;
-    /* Default dark theme */
     padding: 15px;
     border-radius: 6px;
     margin: 10px auto;
@@ -80,7 +77,6 @@ input[type="text"],
 input[type="number"],
 input[type="password"] {
     background-color: #1e1e2e;
-    /* Default dark theme */
     color: #cdd6f4;
     border: 1px solid #45475a;
     padding: 10px;
@@ -122,7 +118,6 @@ input[type="password"]:focus {
     }
 }
 
-/* Light Theme (Catppuccin Latte) */
 body.light {
     background-color: #f8f9fc;
     color: #4c4f69;
@@ -145,26 +140,19 @@ button.light {
 
 input.light {
     background-color: #ffffff;
-    /* Cor de fundo para o input no tema claro */
     color: #1e1e2e;
-    /* Cor do texto para o input no tema claro */
     border: 1px solid #d1d5db;
-    /* Borda para o input no tema claro */
 }
 
-/* Adicionando estilos para os blocos no tema claro */
 #product-list.light,
 #order-list.light,
 #admin-item-list.light,
 #admin-panel.light,
 #admin-actions.light {
     background-color: #ffffff;
-    /* Cor de fundo para o tema claro */
     border: 1px solid #d1d5db;
-    /* Borda para o tema claro */
 }
 
-/* Dark Theme (Catppuccin Mocha) */
 body.dark {
     background-color: #1e1e2e;
     color: #cdd6f4;
@@ -182,21 +170,15 @@ button.dark {
 
 input.dark {
     background-color: #2a2a37;
-    /* Cor de fundo para o input no tema escuro */
     color: #cdd6f4;
-    /* Cor do texto para o input no tema escuro */
     border: 1px solid #45475a;
-    /* Borda para o input no tema escuro */
 }
 
-/* Adicionando estilos para os blocos no tema escuro */
 #product-list.dark,
 #order-list.dark,
 #admin-item-list.dark,
 #admin-panel.dark,
 #admin-actions.dark {
     background-color: #2a2a37;
-    /* Cor de fundo para o tema escuro */
     border: 1px solid #45475a;
-    /* Borda para o tema escuro */
 }
