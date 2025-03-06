@@ -128,6 +128,11 @@ body.light {
     color: #4c4f69;
 }
 
+body.light button {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
+
 h1.light,
 h2.light {
     color: #1e1e2e;
