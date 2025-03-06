@@ -46,7 +46,6 @@ function loadAdminView() {
     const loginButton = document.getElementById("login-admin"); // Obtém o botão de login
     const addItemButton = document.getElementById("add-item"); // Obtém o botão de adicionar item
     const removeItemButton = document.getElementById("remove-item"); // Obtém o botão de remover item
-    const listItemsButton = document.getElementById("list-items"); // Obtém o botão de listar itens
     const adminItemList = document.getElementById("admin-item-list"); // Obtém a lista de itens do admin
 
     // Evento de clique para o botão de login
@@ -54,7 +53,7 @@ function loadAdminView() {
         if (passwordInput.value === adminPassword) { // Verifica se a senha está correta
             adminPanel.style.display = "none"; // Esconde o painel administrativo
             adminActions.style.display = "block"; // Mostra as ações administrativas
-            listItemsButton.click(); // Lista os itens ao fazer login
+            listItems(); // Chama a função para listar itens ao fazer login
         } else {
             alert("Senha incorreta!"); // Alerta se a senha estiver incorreta
         }
@@ -68,7 +67,7 @@ function loadAdminView() {
             items.push(name); // Adiciona o item à lista
             prices.push(price); // Adiciona o preço à lista
             alert("Item adicionado!"); // Alerta que o item foi adicionado
-            listItemsButton.click(); // Atualiza a lista de itens
+            listItems(); // Atualiza a lista de itens
         } else {
             alert("Por favor, insira um nome e um preço válidos."); // Alerta se os dados forem inválidos
         }
@@ -82,21 +81,21 @@ function loadAdminView() {
             items.splice(index, 1); // Remove o item da lista
             prices.splice(index, 1); // Remove o preço correspondente
             alert("Item removido!"); // Alerta que o item foi removido
-            listItemsButton.click(); // Atualiza a lista de itens
+            listItems(); // Atualiza a lista de itens
         } else {
             alert("Item não encontrado!"); // Alerta se o item não for encontrado
         }
     });
 
-    // Evento de clique para o botão de listar itens
-    listItemsButton.addEventListener("click", () => {
+    // Função para listar itens
+    function listItems() {
         adminItemList.innerHTML = ""; // Limpa a lista de itens do admin
         items.forEach((item, index) => {
             const listItem = document.createElement("li"); // Cria um item de lista
             listItem.textContent = `${item} - R${prices[index].toFixed(2)}`; // Define o texto do item
             adminItemList.appendChild(listItem); // Adiciona o item à lista de itens do admin
         });
-    });
+    }
 }
 
 // Adiciona a funcionalidade de finalizar compra
