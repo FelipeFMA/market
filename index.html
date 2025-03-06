@@ -10,7 +10,22 @@
     <body class="dark">
         <h1>Welcome to Online Market</h1>
         <h2>Please select your role:</h2>
-        <button id="customer-button">Customer</button>
+
+        <!-- Container para os botões com algum espaçamento -->
+        <div
+            style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            "
+        >
+            <button id="customer-button" style="width: 200px">Customer</button>
+            <button id="admin-button" style="width: 200px">
+                Administrator
+            </button>
+        </div>
+
         <button
             id="theme-toggle"
             style="
@@ -28,16 +43,28 @@
         </button>
 
         <script>
+            // Navegação para página do cliente
             document
                 .getElementById("customer-button")
                 .addEventListener("click", () => {
                     window.location.href = "customer.html";
                 });
 
+            // Navegação para página do administrador
+            document
+                .getElementById("admin-button")
+                .addEventListener("click", () => {
+                    window.location.href = "admin.html";
+                });
+
             // Theme toggle logic
             const themeToggleButton = document.getElementById("theme-toggle");
             const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark theme
             document.body.classList.add(currentTheme);
+
+            // Atualiza o ícone inicial baseado no tema atual
+            themeToggleButton.textContent =
+                currentTheme === "dark" ? "☀️" : "🌙";
 
             themeToggleButton.addEventListener("click", () => {
                 if (document.body.classList.contains("dark")) {
