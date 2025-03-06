@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: #1e1e2e;
     /* Default dark theme */
     color: #cdd6f4;
@@ -66,7 +66,9 @@ button {
     display: block;
     width: 200px;
     font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 button:hover {
@@ -132,7 +134,7 @@ h2.light {
 }
 
 button.light {
-    background-color: #f8f9fc;
+    background-color: #89b4fa;
     color: #1e1e2e;
 }
 
