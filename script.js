@@ -40,7 +40,7 @@ function loadCustomerView() {
     productList.innerHTML = "";
     items.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item} - ${prices[index].toFixed(2)}`;
+        listItem.textContent = `${item} - $${prices[index].toFixed(2)}`;
         const addButton = document.createElement("button");
         addButton.textContent = "Add";
         addButton.addEventListener("click", () => {
@@ -60,11 +60,11 @@ function updateOrderList() {
     total = 0;
     orderList.forEach(index => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${items[index]} - R${prices[index].toFixed(2)}`;
+        listItem.textContent = `${items[index]} - $${prices[index].toFixed(2)}`;
         orderListElement.appendChild(listItem);
         total += prices[index];
     });
-    totalElement.textContent = total.toFixed(2);
+    totalElement.textContent = `${total.toFixed(2)}`;
 }
 
 function loadAdminView() {
@@ -116,7 +116,7 @@ function loadAdminView() {
         adminItemList.innerHTML = "";
         items.forEach((item, index) => {
             const listItem = document.createElement("li");
-            listItem.textContent = `${item} - R${prices[index].toFixed(2)}`;
+            listItem.textContent = `${item} - $${prices[index].toFixed(2)}`;
             adminItemList.appendChild(listItem);
         });
     }
@@ -132,7 +132,7 @@ document.getElementById("checkout").addEventListener("click", () => {
     setTimeout(() => {
         orderList = [];
         document.getElementById("order-list").innerHTML = "";
-        document.getElementById("total").textContent = "0.00";
+        document.getElementById("total").textContent = "$0.00";
     }, 2000);
 });
 
