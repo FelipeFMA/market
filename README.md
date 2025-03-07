@@ -66,6 +66,14 @@ node server.js
 3. Access the application
 - Open your browser and go to `http://localhost:3000`
 
+4. Default Admin Credentials
+```json
+{
+  "username": "admin",
+  "password": "123456"
+}
+```
+
 ## 🔧 Requirements
 - Node.js
 - NPM
