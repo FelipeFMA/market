@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>404 - Page Not Found</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            .error-container {
+                background-color: #2a2a37;
+                padding: 40px;
+                border-radius: 6px;
+                margin: 50px auto;
+                max-width: 600px;
+                width: 90%;
+                text-align: center;
+                animation: fadeIn 0.5s ease-in forwards;
+            }
+
+            .error-code {
+                font-size: 120px;
+                margin: 0;
+                color: #89b4fa;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .error-message {
+                font-size: 24px;
+                margin: 20px 0;
+                color: #cdd6f4;
+            }
+
+            .error-description {
+                font-size: 18px;
+                margin: 20px auto;
+                color: #a6adc8;
+                max-width: 500px;
+            }
+
+            .home-button {
+                background-color: #89b4fa;
+                color: #1e1e2e;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                cursor: pointer;
+                margin: 20px auto;
+                display: block;
+                width: 200px;
+                font-size: 14px;
+                transition:
+                    background-color 0.3s ease,
+                    transform 0.2s ease;
+            }
+
+            .home-button:hover {
+                background-color: #74a9e8;
+                transform: scale(1.05);
+            }
+
+            .sad-emoji {
+                font-size: 60px;
+                margin: 20px 0;
+                animation: bounce 2s infinite;
+            }
+
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            /* Tema claro */
+            body.light .error-container {
+                background-color: #ffffff;
+                border: 1px solid #d1d5db;
+            }
+
+            body.light .error-message {
+                color: #4c4f69;
+            }
+
+            body.light .error-description {
+                color: #6c6f85;
+            }
+
+            /* Tema escuro */
+            body.dark .error-container {
+                background-color: #2a2a37;
+                border: 1px solid #45475a;
+            }
+
+            body.dark .error-message {
+                color: #cdd6f4;
+            }
+
+            body.dark .error-description {
+                color: #a6adc8;
+            }
+        </style>
+    </head>
+    <body class="dark">
+        <div class="error-container fade-in">
+            <h1 class="error-code">404</h1>
+            <div class="sad-emoji">😢</div>
+            <h2 class="error-message">Oops! Page Not Found</h2>
+            <p class="error-description">
+                We couldn't find the page you're looking for. It might have been
+                moved, deleted, or never existed in the first place. Don't worry
+                though, you can always return to the homepage!
+            </p>
+            <button class="home-button" onclick="window.location.href='/'">
+                Return to Homepage
+            </button>
+        </div>
+
+        <button
+            id="theme-toggle"
+            style="
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                padding: 0;
+                transform: scale(0.8);
+                font-size: 35px;
+            "
+        >
+            🌙
+        </button>
+
+        <script>
+            const themeToggleButton = document.getElementById("theme-toggle");
+            const currentTheme = localStorage.getItem("theme") || "dark";
+            document.body.classList.add(currentTheme);
+
+            themeToggleButton.textContent =
+                currentTheme === "dark" ? "☀️" : "🌙";
+
+            themeToggleButton.addEventListener("click", () => {
+                if (document.body.classList.contains("dark")) {
+                    document.body.classList.remove("dark");
+                    document.body.classList.add("light");
+                    localStorage.setItem("theme", "light");
+                    themeToggleButton.textContent = "🌙";
+                } else {
+                    document.body.classList.remove("light");
+                    document.body.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                    themeToggleButton.textContent = "☀️";
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -112,6 +112,11 @@ app.get("/customer", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "customer.html"));
 });
 
+// Middleware para tratar rotas não encontradas (404)
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
