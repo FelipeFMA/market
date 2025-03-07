@@ -73,6 +73,33 @@ button:hover {
     transform: scale(1.05);
 }
 
+select {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px auto;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #89b4fa;
+}
+
+select:hover {
+    border-color: #89b4fa;
+}
+
+select option {
+    background-color: #2a2a37;
+    color: #cdd6f4;
+    padding: 10px;
+}
+
 input[type="text"],
 input[type="number"],
 input[type="password"] {
@@ -126,6 +153,17 @@ body.light {
 body.light button {
     background-color: #89b4fa;
     color: #1e1e2e;
+}
+
+body.light select {
+    background-color: #ffffff;
+    color: #4c4f69;
+    border: 1px solid #d1d5db;
+}
+
+body.light select option {
+    background-color: #ffffff;
+    color: #4c4f69;
 }
 
 h1.light,

@@ -11,7 +11,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
-// Rota para obter todos os items
 app.get("/api/items", async (req, res) => {
   try {
     const data = await fs.readFile(
@@ -24,7 +23,6 @@ app.get("/api/items", async (req, res) => {
   }
 });
 
-// Rota para adicionar um novo item
 app.post("/api/items", async (req, res) => {
   try {
     const data = await fs.readFile(
@@ -45,7 +43,6 @@ app.post("/api/items", async (req, res) => {
   }
 });
 
-// Rota para atualizar um item
 app.put("/api/items/:id", async (req, res) => {
   try {
     const data = await fs.readFile(
@@ -71,7 +68,6 @@ app.put("/api/items/:id", async (req, res) => {
   }
 });
 
-// Rota para deletar um item
 app.delete("/api/items/:id", async (req, res) => {
   try {
     const data = await fs.readFile(
@@ -91,7 +87,6 @@ app.delete("/api/items/:id", async (req, res) => {
   }
 });
 
-// Rota de login
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
@@ -102,17 +97,14 @@ app.post("/api/login", (req, res) => {
   }
 });
 
-// Rota para servir o admin.html
 app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "admin.html"));
 });
 
-// Rota para servir o customer.html
 app.get("/customer", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "customer.html"));
 });
 
-// Middleware para tratar rotas não encontradas (404)
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });

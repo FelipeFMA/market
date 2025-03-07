@@ -185,6 +185,36 @@ const script = (() => {
       );
     }
 
+    const categoryFilter = document.getElementById("category-filter");
+    if (categoryFilter) {
+      categoryFilter.addEventListener("change", () => {
+        const searchTerm = document.getElementById("search-customer").value;
+        const selectedCategory = categoryFilter.value;
+
+        if (!productList) return;
+
+        productList.innerHTML = "";
+        marketItems.forEach((item) => {
+          if (
+            (selectedCategory === "" || item.category === selectedCategory) &&
+            item.name.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            const addButton = document.createElement("button");
+            addButton.textContent = "Add";
+            addButton.addEventListener("click", () => {
+              orderList.push(item);
+              updateOrderList();
+              showFeedback("Item added to cart!");
+            });
+            listItem.appendChild(addButton);
+            productList.appendChild(listItem);
+          }
+        });
+      });
+    }
+
     updateOrderList();
   }
 
@@ -223,7 +253,6 @@ const script = (() => {
     const addItemButton = document.getElementById("add-item");
     const updateItemButton = document.getElementById("update-item");
     const cancelEditButton = document.getElementById("cancel-edit");
-    let selectedItemId = null;
 
     function refreshItemsList() {
       if (!itemsList) return;
@@ -351,7 +380,6 @@ const script = (() => {
           document.getElementById("item-name").value = item.name;
           document.getElementById("item-price").value = item.price;
           document.getElementById("item-category").value = item.category;
-          selectedItemId = id;
           window.selectedItemId = id;
           addItemButton.style.display = "none";
           updateItemButton.style.display = "block";
@@ -391,14 +419,31 @@ const script = (() => {
   function filterItems(searchTerm, listElement) {
     if (!listElement) return;
 
-    const listItems = listElement.querySelectorAll("li");
+    const selectedCategory =
+      document.getElementById("category-filter")?.value || "";
+
+    const listItems = marketItems.filter((item) => {
+      const matchesSearch = item.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const matchesCategory =
+        selectedCategory === "" || item.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+
+    listElement.innerHTML = "";
     listItems.forEach((item) => {
-      const itemText = item.textContent.toLowerCase();
-      if (itemText.includes(searchTerm.toLowerCase())) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+      const listItem = document.createElement("li");
+      listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      const addButton = document.createElement("button");
+      addButton.textContent = "Add";
+      addButton.addEventListener("click", () => {
+        orderList.push(item);
+        updateOrderList();
+        showFeedback("Item added to cart!");
+      });
+      listItem.appendChild(addButton);
+      listElement.appendChild(listItem);
     });
   }
 
