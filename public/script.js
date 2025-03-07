@@ -9,11 +9,39 @@ const script = (() => {
   const totalElement = document.getElementById("total");
   const successScreen = document.getElementById("success-screen");
   const backToMainButton = document.getElementById("back-to-main");
+  const cancelEditButton = document.getElementById("cancel-edit");
 
   if (backToMainButton) {
     backToMainButton.addEventListener("click", () => {
       window.location.href = "index.html";
     });
+  }
+
+  if (cancelEditButton) {
+    cancelEditButton.addEventListener("click", cancelEdit);
+  }
+
+  // Add cancelEdit function
+  function cancelEdit() {
+    const nameInput = document.getElementById("item-name");
+    const priceInput = document.getElementById("item-price");
+    const categoryInput = document.getElementById("item-category");
+    const addItemButton = document.getElementById("add-item");
+    const updateItemButton = document.getElementById("update-item");
+    const cancelEditButton = document.getElementById("cancel-edit");
+
+    // Clear form
+    if (nameInput) nameInput.value = "";
+    if (priceInput) priceInput.value = "";
+    if (categoryInput) categoryInput.value = "";
+
+    // Reset buttons
+    if (addItemButton) addItemButton.style.display = "block";
+    if (updateItemButton) updateItemButton.style.display = "none";
+    if (cancelEditButton) cancelEditButton.style.display = "none";
+
+    // Reset selected item
+    window.selectedItemId = null;
   }
 
   async function fetchItems() {
@@ -421,5 +449,6 @@ const script = (() => {
         }
       }
     },
+    cancelEdit,
   };
 })();

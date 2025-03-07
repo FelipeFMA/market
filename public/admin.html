@@ -8,10 +8,6 @@
     <body class="dark">
         <h1>Market Administration</h1>
 
-        <div style="color: red; text-align: center; margin: 20px 0">
-            <p>Esta funcionalidade ainda está em desenvolvimento</p>
-        </div>
-
         <div id="admin-panel" class="fade-in">
             <h2>Add/Edit Item</h2>
             <input
@@ -131,6 +127,7 @@
                             "none";
                         document.getElementById("cancel-edit").style.display =
                             "none";
+                        window.selectedItemId = null;
                     });
 
                 function updateStats() {
