@@ -156,14 +156,14 @@ const script = (() => {
       marketItems.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>${item.name} - $${item.price.toFixed(2)} (${item.category})</span>
-                        <div>
-                            <button onclick="script.editItem(${item.id})">Edit</button>
-                            <button onclick="script.deleteItem(${item.id})" style="background-color: #f44336;">Delete</button>
-                        </div>
-                    </div>
-                `;
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>${item.name} - $${item.price.toFixed(2)} (${item.category})</span>
+                <div>
+                    <button onclick="script.editItem(${item.id})">Edit</button>
+                    <button onclick="script.deleteItem(${item.id})" style="background-color: #f44336;">Delete</button>
+                </div>
+            </div>
+        `;
         itemsList.appendChild(li);
       });
       updateStats();
@@ -227,6 +227,46 @@ const script = (() => {
 
     refreshItemsList();
 
+    if (updateItemButton) {
+      updateItemButton.addEventListener("click", async () => {
+        if (window.selectedItemId) {
+          try {
+            const response = await fetch(
+              `http://localhost:3000/api/items/${window.selectedItemId}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  name: document.getElementById("item-name").value,
+                  price: parseFloat(
+                    document.getElementById("item-price").value,
+                  ),
+                  category: document.getElementById("item-category").value,
+                }),
+              },
+            );
+
+            if (!response.ok) throw new Error("Failed to update item");
+
+            await fetchItems();
+            document.getElementById("item-name").value = "";
+            document.getElementById("item-price").value = "";
+            document.getElementById("item-category").value = "";
+            document.getElementById("add-item").style.display = "block";
+            document.getElementById("update-item").style.display = "none";
+            document.getElementById("cancel-edit").style.display = "none";
+            window.selectedItemId = null;
+            showFeedback("Item updated successfully!");
+          } catch (error) {
+            showFeedback("Error updating item", true);
+            console.error("Error:", error);
+          }
+        }
+      });
+    }
+
     window.script = {
       ...window.script,
       editItem: (id) => {
@@ -236,6 +276,7 @@ const script = (() => {
           document.getElementById("item-price").value = item.price;
           document.getElementById("item-category").value = item.category;
           selectedItemId = id;
+          window.selectedItemId = id;
           addItemButton.style.display = "none";
           updateItemButton.style.display = "block";
           cancelEditButton.style.display = "block";
@@ -262,40 +303,6 @@ const script = (() => {
         }
       },
     };
-
-    if (updateItemButton) {
-      updateItemButton.addEventListener("click", async () => {
-        if (selectedItemId) {
-          try {
-            const response = await fetch(
-              `http://localhost:3000/api/items/${selectedItemId}`,
-              {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  name: document.getElementById("item-name").value,
-                  price: parseFloat(
-                    document.getElementById("item-price").value,
-                  ),
-                  category: document.getElementById("item-category").value,
-                }),
-              },
-            );
-
-            if (!response.ok) throw new Error("Failed to update item");
-
-            await fetchItems();
-            clearForm();
-            selectedItemId = null;
-            showFeedback("Item updated successfully!");
-          } catch (error) {
-            showFeedback("Error updating item", true);
-          }
-        }
-      });
-    }
 
     const searchInput = document.getElementById("search-admin");
     if (searchInput) {
@@ -381,6 +388,38 @@ const script = (() => {
       orderList.splice(index, 1);
       updateOrderList();
       showFeedback("Item removed from cart!");
+    },
+    editItem: (id) => {
+      const item = marketItems.find((item) => item.id === id);
+      if (item) {
+        document.getElementById("item-name").value = item.name;
+        document.getElementById("item-price").value = item.price;
+        document.getElementById("item-category").value = item.category;
+        document.getElementById("add-item").style.display = "none";
+        document.getElementById("update-item").style.display = "block";
+        document.getElementById("cancel-edit").style.display = "block";
+        window.selectedItemId = id;
+      }
+    },
+    deleteItem: async (id) => {
+      if (confirm("Are you sure you want to delete this item?")) {
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/items/${id}`,
+            {
+              method: "DELETE",
+            },
+          );
+
+          if (!response.ok) throw new Error("Failed to delete item");
+
+          await fetchItems();
+          showFeedback("Item deleted successfully!");
+        } catch (error) {
+          showFeedback("Error deleting item", true);
+          console.error("Error:", error);
+        }
+      }
     },
   };
 })();
