@@ -86,4 +86,4 @@ Feel free to fork, modify, and make pull requests. As this is a learning project
 This project is not intended for production use. It's a learning tool and demonstration of basic web development concepts.
 
 ## 🙏 Acknowledgments
-Special thanks to Ítalo, a friend of mine that gave me the idea of this project and to ChatGPT/Claude because... well... LOL
+Special thanks to [Ítalo](https://github.com/Italo-Schezar), a friend of mine that gave me the idea of this project and to ChatGPT/Claude because... well... LOL
