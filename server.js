@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs").promises;
 const path = require("path");
 const cors = require("cors");
+const adminData = require("./data/admin.json");
 
 const app = express();
 const port = 3000;
@@ -87,6 +88,17 @@ app.delete("/api/items/:id", async (req, res) => {
     res.json({ message: "Item deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: "Error deleting item" });
+  }
+});
+
+// Rota de login
+app.post("/api/login", (req, res) => {
+  const { username, password } = req.body;
+
+  if (username === adminData.username && password === adminData.password) {
+    res.status(200).json({ success: true });
+  } else {
+    res.status(401).json({ error: "Invalid credentials" });
   }
 });
 

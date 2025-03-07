@@ -11,6 +11,58 @@ const script = (() => {
   const backToMainButton = document.getElementById("back-to-main");
   const cancelEditButton = document.getElementById("cancel-edit");
 
+  function initializeLogin() {
+    const adminButton = document.getElementById("admin-button");
+    const loginCancel = document.getElementById("login-cancel");
+    const loginSubmit = document.getElementById("login-submit");
+
+    if (adminButton) {
+      adminButton.addEventListener("click", () => {
+        document.getElementById("admin-login").style.display = "block";
+      });
+    }
+
+    if (loginCancel) {
+      loginCancel.addEventListener("click", () => {
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("admin-username").value = "";
+        document.getElementById("admin-password").value = "";
+        document.getElementById("login-error").style.display = "none";
+      });
+    }
+
+    if (loginSubmit) {
+      loginSubmit.addEventListener("click", async () => {
+        const username = document.getElementById("admin-username").value;
+        const password = document.getElementById("admin-password").value;
+
+        try {
+          const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+          });
+
+          if (response.ok) {
+            window.location.href = "/admin";
+          } else {
+            document.getElementById("login-error").style.display = "block";
+          }
+        } catch (error) {
+          document.getElementById("login-error").style.display = "block";
+        }
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeLogin);
+  } else {
+    initializeLogin();
+  }
+
   if (backToMainButton) {
     backToMainButton.addEventListener("click", () => {
       window.location.href = "index.html";
@@ -21,7 +73,6 @@ const script = (() => {
     cancelEditButton.addEventListener("click", cancelEdit);
   }
 
-  // Add cancelEdit function
   function cancelEdit() {
     const nameInput = document.getElementById("item-name");
     const priceInput = document.getElementById("item-price");
@@ -30,17 +81,14 @@ const script = (() => {
     const updateItemButton = document.getElementById("update-item");
     const cancelEditButton = document.getElementById("cancel-edit");
 
-    // Clear form
     if (nameInput) nameInput.value = "";
     if (priceInput) priceInput.value = "";
     if (categoryInput) categoryInput.value = "";
 
-    // Reset buttons
     if (addItemButton) addItemButton.style.display = "block";
     if (updateItemButton) updateItemButton.style.display = "none";
     if (cancelEditButton) cancelEditButton.style.display = "none";
 
-    // Reset selected item
     window.selectedItemId = null;
   }
 
@@ -450,5 +498,6 @@ const script = (() => {
       }
     },
     cancelEdit,
+    initializeLogin,
   };
 })();

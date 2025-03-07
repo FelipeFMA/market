@@ -25,6 +25,29 @@
             </button>
         </div>
 
+        <div id="admin-login" style="display: none">
+            <h3>Administrator Login</h3>
+            <input
+                type="text"
+                id="admin-username"
+                placeholder="Username"
+                required
+            />
+            <input
+                type="password"
+                id="admin-password"
+                placeholder="Password"
+                required
+            />
+            <div style="display: flex; gap: 10px; justify-content: center">
+                <button id="login-submit">Login</button>
+                <button id="login-cancel">Cancel</button>
+            </div>
+            <p id="login-error" style="color: #f44336; display: none">
+                Invalid credentials
+            </p>
+        </div>
+
         <button
             id="theme-toggle"
             style="
@@ -51,7 +74,49 @@
             document
                 .getElementById("admin-button")
                 .addEventListener("click", () => {
-                    window.location.href = "/admin";
+                    document.getElementById("admin-login").style.display =
+                        "block";
+                });
+
+            document
+                .getElementById("login-cancel")
+                .addEventListener("click", () => {
+                    document.getElementById("admin-login").style.display =
+                        "none";
+                    document.getElementById("admin-username").value = "";
+                    document.getElementById("admin-password").value = "";
+                    document.getElementById("login-error").style.display =
+                        "none";
+                });
+
+            document
+                .getElementById("login-submit")
+                .addEventListener("click", async () => {
+                    const username =
+                        document.getElementById("admin-username").value;
+                    const password =
+                        document.getElementById("admin-password").value;
+
+                    try {
+                        const response = await fetch("/api/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ username, password }),
+                        });
+
+                        if (response.ok) {
+                            window.location.href = "/admin";
+                        } else {
+                            document.getElementById(
+                                "login-error",
+                            ).style.display = "block";
+                        }
+                    } catch (error) {
+                        document.getElementById("login-error").style.display =
+                            "block";
+                    }
                 });
 
             const themeToggleButton = document.getElementById("theme-toggle");
