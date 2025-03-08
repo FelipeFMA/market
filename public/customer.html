@@ -7,14 +7,14 @@
 
     <body class="dark">
         <h1>Online Market</h1>
-        <div style="display: flex; gap: 10px; width: 50%; margin: 10px auto">
+        <div style="width: 50%; margin: 10px auto">
             <input
                 type="text"
                 id="search-customer"
                 placeholder="Search items..."
                 style="width: 100%; margin: 0"
             />
-            <select id="category-filter" style="width: 30%; margin: 0">
+            <select id="category-filter" style="width: 100%; margin: 10px 0 0 0">
                 <option value="">All Categories</option>
                 <option value="Fruits">Fruits</option>
                 <option value="Vegetables">Vegetables</option>
@@ -26,9 +26,6 @@
         <ul id="order-list" class="fade-in"></ul>
         <p>Total: $<span id="total">0.00</span></p>
         <button id="checkout">Checkout</button>
-        <p id="success-message" style="display: none">
-            Purchase completed successfully!
-        </p>
         <div class="overlay" style="display: none"></div>
         <div id="success-screen" style="display: none" class="fade-in">
             <h2>Thank you for your purchase! 🎉</h2>
