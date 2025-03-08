@@ -461,6 +461,8 @@ const script = (() => {
   }
 
   function checkout() {
+    const overlay = document.querySelector(".overlay");
+    if (overlay) overlay.style.display = "block";
     if (successScreen) {
       successScreen.style.display = "block";
     }
@@ -481,6 +483,8 @@ const script = (() => {
   }
 
   function backToShopping() {
+    const overlay = document.querySelector(".overlay");
+    if (overlay) overlay.style.display = "none";
     if (successScreen) {
       successScreen.style.display = "none";
     }
