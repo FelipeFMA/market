@@ -27,6 +27,39 @@
         <p>Total: $<span id="total">0.00</span></p>
         <button id="checkout">Checkout</button>
         <div class="overlay" style="display: none"></div>
+        
+        <!-- Elemento de feedback para mensagens -->
+        <div id="feedback-message" style="display: none"></div>
+        
+        <!-- Nova tela de cartão de crédito -->
+        <div id="credit-card-screen" style="display: none" class="fade-in">
+            <h2>Payment Information</h2>
+            <div class="credit-card-form">
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-expiry">Expiry Date</label>
+                        <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" />
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvv">CVV</label>
+                        <input type="text" id="card-cvv" placeholder="123" maxlength="3" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="card-name">Cardholder Name</label>
+                    <input type="text" id="card-name" placeholder="John Doe" />
+                </div>
+                <div class="button-group">
+                    <button id="process-payment">Process Payment</button>
+                    <button id="cancel-payment">Cancel</button>
+                </div>
+            </div>
+        </div>
+        
         <div id="success-screen" style="display: none" class="fade-in">
             <h2>Thank you for your purchase! 🎉</h2>
             <p>Your order has been received and is being processed.</p>

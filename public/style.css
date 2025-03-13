@@ -326,3 +326,111 @@ body.light {
     align-items: center;
     width: 100%;
 }
+
+/* Estilos para a tela de cartão de crédito */
+#credit-card-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-alt);
+    border-radius: 12px;
+    padding: 2rem;
+    width: min(450px, 90%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.credit-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.credit-card-form label {
+    font-size: 0.9rem;
+    color: var(--fg-alt);
+}
+
+.credit-card-form input {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    color: var(--fg);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.credit-card-form input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.button-group button {
+    flex: 1;
+}
+
+#process-payment {
+    background-color: var(--success);
+    color: var(--bg);
+}
+
+#process-payment:hover {
+    background-color: #95d290;
+}
+
+#cancel-payment {
+    background-color: var(--error);
+    color: var(--bg);
+}
+
+#cancel-payment:hover {
+    background-color: #e27a97;
+}
+
+/* Estilos para o elemento de feedback */
+#feedback-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: var(--bg);
+    font-weight: 500;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

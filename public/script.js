@@ -482,14 +482,75 @@ const script = (() => {
   function checkout() {
     const overlay = document.querySelector(".overlay");
     if (overlay) overlay.style.display = "block";
+    
+    // Mostrar a tela de cartão de crédito em vez da tela de sucesso
+    const creditCardScreen = document.getElementById("credit-card-screen");
+    if (creditCardScreen) {
+      creditCardScreen.style.display = "block";
+    }
+    
+    // Adicionar event listeners para os botões da tela de cartão de crédito
+    const processPaymentButton = document.getElementById("process-payment");
+    const cancelPaymentButton = document.getElementById("cancel-payment");
+    
+    if (processPaymentButton) {
+      processPaymentButton.addEventListener("click", processPayment);
+    }
+    
+    if (cancelPaymentButton) {
+      cancelPaymentButton.addEventListener("click", cancelPayment);
+    }
+    
+    // Adicionar formatação para o número do cartão
+    const cardNumberInput = document.getElementById("card-number");
+    if (cardNumberInput) {
+      cardNumberInput.addEventListener("input", function(e) {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 0) {
+          value = value.match(new RegExp('.{1,4}', 'g')).join(" ");
+        }
+        e.target.value = value;
+      });
+    }
+    
+    // Adicionar formatação para a data de expiração
+    const cardExpiryInput = document.getElementById("card-expiry");
+    if (cardExpiryInput) {
+      cardExpiryInput.addEventListener("input", function(e) {
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 2) {
+          value = value.substring(0, 2) + "/" + value.substring(2, 4);
+        }
+        e.target.value = value;
+      });
+    }
+  }
+  
+  function processPayment() {
+    // Validar os campos do cartão (apenas para demonstração)
+    const cardNumber = document.getElementById("card-number").value;
+    const cardExpiry = document.getElementById("card-expiry").value;
+    const cardCVV = document.getElementById("card-cvv").value;
+    const cardName = document.getElementById("card-name").value;
+    
+    if (!cardNumber || !cardExpiry || !cardCVV || !cardName) {
+      showFeedback("Please fill in all payment fields", true);
+      return;
+    }
+    
+    // Esconder a tela de cartão de crédito
+    const creditCardScreen = document.getElementById("credit-card-screen");
+    if (creditCardScreen) {
+      creditCardScreen.style.display = "none";
+    }
+    
+    // Mostrar a tela de sucesso
+    const successScreen = document.getElementById("success-screen");
     if (successScreen) {
       successScreen.style.display = "block";
     }
-    const successMessage = document.getElementById("success-message");
-    if (successMessage) {
-      successMessage.style.display = "block";
-    }
-
+    
+    // Limpar o carrinho após o pagamento
     setTimeout(() => {
       orderList = [];
       if (orderListElement) {
@@ -498,15 +559,41 @@ const script = (() => {
       if (totalElement) {
         totalElement.textContent = "0.00";
       }
+      
+      // Limpar os campos do cartão
+      document.getElementById("card-number").value = "";
+      document.getElementById("card-expiry").value = "";
+      document.getElementById("card-cvv").value = "";
+      document.getElementById("card-name").value = "";
     }, 2000);
+  }
+  
+  function cancelPayment() {
+    // Esconder a tela de cartão de crédito e o overlay
+    const creditCardScreen = document.getElementById("credit-card-screen");
+    if (creditCardScreen) {
+      creditCardScreen.style.display = "none";
+    }
+    
+    const overlay = document.querySelector(".overlay");
+    if (overlay) overlay.style.display = "none";
+    
+    // Limpar os campos do cartão
+    document.getElementById("card-number").value = "";
+    document.getElementById("card-expiry").value = "";
+    document.getElementById("card-cvv").value = "";
+    document.getElementById("card-name").value = "";
   }
 
   function backToShopping() {
     const overlay = document.querySelector(".overlay");
     if (overlay) overlay.style.display = "none";
+    
+    const successScreen = document.getElementById("success-screen");
     if (successScreen) {
       successScreen.style.display = "none";
     }
+    
     orderList = [];
     updateOrderList();
     loadCustomerView();
