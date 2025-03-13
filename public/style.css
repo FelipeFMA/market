@@ -276,4 +276,53 @@ body.light {
         margin: 0.5rem 0;
         padding: 1rem;
     }
+
+    .admin-buttons {
+        min-width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .admin-buttons button {
+        min-width: 80px;
+        margin: 0 5px;
+    }
+    
+    .admin-item-container {
+        flex-direction: column;
+    }
+    
+    .admin-item-info {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+/* Estilos específicos para os botões de administração */
+.admin-buttons {
+    display: flex;
+    gap: 5px;
+    min-width: 140px;
+    justify-content: flex-end;
+}
+
+.admin-buttons button {
+    min-width: 60px;
+    margin: 0 2px;
+    padding: 0.6rem 1rem;
+}
+
+.admin-item-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }

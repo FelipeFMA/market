@@ -261,9 +261,9 @@ const script = (() => {
       marketItems.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span>${item.name} - $${item.price.toFixed(2)} (${item.category})</span>
-                <div>
+            <div class="admin-item-container">
+                <span class="admin-item-info">${item.name} - $${item.price.toFixed(2)} (${item.category})</span>
+                <div class="admin-buttons">
                     <button onclick="script.editItem(${item.id})">Edit</button>
                     <button onclick="script.deleteItem(${item.id})" style="background-color: #f44336;">Delete</button>
                 </div>
@@ -434,15 +434,34 @@ const script = (() => {
     listElement.innerHTML = "";
     listItems.forEach((item) => {
       const listItem = document.createElement("li");
-      listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-      const addButton = document.createElement("button");
-      addButton.textContent = "Add";
-      addButton.addEventListener("click", () => {
-        orderList.push(item);
-        updateOrderList();
-        showFeedback("Item added to cart!");
-      });
-      listItem.appendChild(addButton);
+      
+      // Check if we're in admin view (items-list) or customer view (product-list)
+      const isAdminView = listElement.id === "items-list";
+      
+      if (isAdminView) {
+        // Admin view with Edit and Delete buttons
+        listItem.innerHTML = `
+          <div class="admin-item-container">
+              <span class="admin-item-info">${item.name} - $${item.price.toFixed(2)} (${item.category})</span>
+              <div class="admin-buttons">
+                  <button onclick="script.editItem(${item.id})">Edit</button>
+                  <button onclick="script.deleteItem(${item.id})" style="background-color: #f44336;">Delete</button>
+              </div>
+          </div>
+        `;
+      } else {
+        // Customer view with Add button
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add";
+        addButton.addEventListener("click", () => {
+          orderList.push(item);
+          updateOrderList();
+          showFeedback("Item added to cart!");
+        });
+        listItem.appendChild(addButton);
+      }
+      
       listElement.appendChild(listItem);
     });
   }
